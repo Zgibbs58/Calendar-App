@@ -18,7 +18,9 @@
       href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
+    <!-- jquery cdn link added below -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="/assets/css/style.css" />
     <title>Work Day Scheduler</title>
   </head>
 
@@ -42,7 +44,7 @@
       <!-- Example of a past time block. The "past" class adds a gray background color. -->
       <div id="hour-9" class="row time-block past">
         <div class="col-2 col-md-1 hour text-center py-3">9AM</div>
-        <textarea class="col-8 col-md-10 description" rows="3"> </textarea>
+        <textarea id="calendar-event" class="col-8 col-md-10 description" rows="3"> </textarea>
         <button class="btn saveBtn col-2 col-md-1" aria-label="save">
           <i class="fas fa-save" aria-hidden="true"></i>
         </button>
@@ -73,6 +75,6 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="script.js"></script>
+    <script src="/assets/js/script.js"></script>
   </body>
 </html>
