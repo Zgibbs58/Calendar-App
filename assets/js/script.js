@@ -11,12 +11,13 @@ $(function () {
       ? $(this).addClass("future")
       : $(this).addClass("present");
   });
+  // click triggers the setting of hourAttr as key and hourTxt as value in local storage
   $(".saveBtn").click(function () {
-    var btnParent = $(this).parent().children(".description").val();
-    var btnParentAttr = $(this).parent().attr("id");
-    localStorage.setItem(btnParentAttr, btnParent);
+    var hourAttr = $(this).parent().attr("id");
+    var hourTxt = $(this).parent().children(".description").val();
+    localStorage.setItem(hourAttr, hourTxt);
   });
-
+  // for loop to iterate through local storage change text of the correlated value of the hour
   for (let i = 0; i < 18; i++) {
     var calendarText = localStorage.getItem("hour-" + [i]);
     $("#hour-" + [i])
