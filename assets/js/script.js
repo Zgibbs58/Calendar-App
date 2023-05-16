@@ -8,11 +8,30 @@ $(function () {
   // function? How can DOM traversal be used to get the "hour-x" id of the
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
+  var hour = dayjs().hour();
+  console.log(hour);
+  $(".time-block").each(function () {
+    console.log($(this).attr("id"));
+    var id = $(this).attr("id").split("-")[1];
+    var rowHour = parseInt(id);
+
+    if (hour > rowHour) {
+      $(this).addClass("past");
+    } else if (hour < rowHour) {
+      $(this).addClass("future");
+    } else {
+      $(this).addClass("present");
+    }
+  });
 
   $(".saveBtn").click(function () {
-    var calendarEvent = $("#calendar-event").val();
-    console.log("button clicked");
-    localStorage.setItem("calendarEvent", calendarEvent);
+    var btnParent = $(this).parent().children(".description").val();
+    console.log(btnParent);
+    // var calendarEvent = $(".description").val();
+    // console.log("button clicked");
+    // console.log(this.parent);
+    localStorage.setItem("calendarEvent", btnParent);
+    // var calendarText = localStorage.getItem("calendarEvent", calendarEvent);
   });
 
   // TODO: Add code to apply the past, present, or future class to each time
@@ -27,3 +46,6 @@ $(function () {
   //
   // TODO: Add code to display the current date in the header of the page.
 });
+
+// anthony said use military time to make it simple for am and pm
+//
