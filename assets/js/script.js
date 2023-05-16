@@ -1,4 +1,6 @@
 $(function () {
+  // pulling the current day from dayjs and using it to populate header p text
+  $("#currentDay").text(dayjs().format("MMM D, YYYY"));
   var hour = dayjs().hour();
   $(".time-block").each(function () {
     var id = $(this).attr("id").split("-")[1];
@@ -9,7 +11,6 @@ $(function () {
       ? $(this).addClass("future")
       : $(this).addClass("present");
   });
-
   $(".saveBtn").click(function () {
     var btnParent = $(this).parent().children(".description").val();
     var btnParentAttr = $(this).parent().attr("id");
