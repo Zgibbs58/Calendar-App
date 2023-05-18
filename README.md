@@ -2,7 +2,7 @@
 
 ## Description
 
-The Work-DaySchedular is a single page front-end web application that displays time slots for a standard working day. At the top of the page is the title, description, and the current day. What follows is a display of each time slot. Each one has a text area where the user can input a task that needs to be completed and a save button to save the task to the slot. When the page is refreshed, the text remains inside the corresponding time slot.
+The Work-Day-Scheduler is a single page, front-end web application that displays time slots for a standard working day. At the top of the page is the title, description, and the current day. What follows is a display of each time slot. Each one has a text area where the user can input a task that needs to be completed and a save button to save the task to the slot. When the page is refreshed, the text remains inside the corresponding time slot.
 
 ## Usage
 
