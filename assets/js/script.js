@@ -1,7 +1,7 @@
 $(function () {
   // pulling the current day from dayjs and using it to populate header p text
   $("#currentDay").text(dayjs().format("MMM D, YYYY"));
-  var hour = dayjs().hour();
+  var hour = dayjs().hour() -3;
   $(".time-block").each(function () {
     var id = $(this).attr("id").split("-")[1];
     var rowHour = parseInt(id);
@@ -10,20 +10,26 @@ $(function () {
       : hour < rowHour
       ? $(this).addClass("future")
       : $(this).addClass("present");
+      var calendarText = localStorage.getItem(id);
+      $(this).children(".description").text(calendarText);
+      
+    //   var calendarText = localStorage.getItem(id);
+    // $(id).children(".description").text(calendarText);
   });
   // click triggers the setting of hourAttr as key and hourTxt as value in local storage
   $(".saveBtn").click(function () {
-    var hourAttr = $(this).parent().attr("id");
+    var hourAttr = $(this).parent().attr("id").split("-")[1];
     var hourTxt = $(this).parent().children(".description").val();
     localStorage.setItem(hourAttr, hourTxt);
   });
   // for loop to iterate through local storage change text of the correlated value of the hour
-  for (let i = 0; i < 18; i++) {
-    var calendarText = localStorage.getItem("hour-" + [i]);
-    $("#hour-" + [i])
-      .children(".description")
-      .text(calendarText);
-  }
+  // for (let i = 0; i < 18; i++) {
+  //   var calendarText = localStorage.getItem("hour-" + [i]);
+  //   $("#hour-" + [i])
+  //     .children(".description")
+  //     .text(calendarText);
+  //     console.log(calendarText)
+  // }
 });
 
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
